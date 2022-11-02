@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block navbar-content %}
+<i style="color: yellowgreen;" class="fas fa-solid fa-file-circle-plus"></i>&nbsp;&nbsp; 
+
+{% endblock navbar-content %}
+
+
+{% block content %}
+  <div class="container mt-4" style="width: 900px;">
+    <h3>Add Article</h3>
+    <form action="" method="post" novalidate>
+      {% csrf_token %}
+      {{article_form | crispy}}
+      {{article_form.media}}
+
+      <input type="submit" value="Add Article" class="btn btn-success" style="margin-top: 5px;">
+
+    </form>
+  </div>
+{% endblock content %}

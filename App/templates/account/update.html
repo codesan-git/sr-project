@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block title %}
+Update Article
+{% endblock title %}
+    
+
+{% block content %}
+  <div class="container" style="width: 900px;">
+    <h3 style="text-align: center; margin-top: 10px;">Update Article</h3>
+
+    <form action="" method="post">
+      {% csrf_token %}
+      {{form | crispy}}
+      {{form.media | safe}}
+
+      <input type="submit" value="Update Article" class="btn btn-success" style="margin-top: 10px;">
+
+    </form>
+
+  </div>
+
+
+{% endblock content %}

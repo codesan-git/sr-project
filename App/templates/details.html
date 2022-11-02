@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+{% block title %}
+    Details Article
+{% endblock title %}
+
+<!-- Navbar Content -->
+
+{% block navbar-content %}
+<i style="color: yellowgreen;" class="fas fa-solid fa-file-circle-info"></i>&nbsp;&nbsp;
+{% endblock navbar-content %}
+    
+{% block content %}
+    <div class="container mt-4" style="width: 21cm; min-height: 28cm; border: 2px dashed black;">
+        <h1>{{article.title}}</h1>
+        <h6>Published {{article.published}} by <i>{{article.author}}</i></h6>
+        <br>
+
+        {{article.description | safe}}
+
+        {% if request.user == article.author %}
+            <br><br><br>
+            <a class="btn btn-danger  mt-3" href="{% url 'delete_article' article.slug %}">Delete</a>
+            <a class="btn btn-success mx-3 mt-3" href="{% url 'update_article' article.slug %}" >Update</a>
+        {% endif %}
+    </div>
+
+
+{% endblock content %}

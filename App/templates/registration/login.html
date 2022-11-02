@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}Login {% endblock title %}
+
+{% block navbar-content %}
+<i style="color: yellowgreen;" class="fas fa-solid fa-user"></i>&nbsp;&nbsp; 
+{% endblock navbar-content %}
+
+
+{% block content %}
+  <div class="container" style="text-align: left; margin-top: 20vh; width: 350px;">
+    <h3>Login</h3>
+    <form action="" method="POST" novalidate>
+
+      {{form.as_p}}
+      {% csrf_token %}
+
+      <input type="hidden" name="next"  value = "{{next}}">
+      <input type="submit" value="Login" class="btn btn-success">
+
+    </form>
+  </div>
+
+
+{% endblock content %}
